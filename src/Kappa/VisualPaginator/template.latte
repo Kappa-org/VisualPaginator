@@ -5,16 +5,21 @@
 		{else}
 			<li><a href="{link this, 'page' => $paginator->page - 1}">&laquo;</a></li>
 		{/if}
-
+		{if $paginator->page - 3 > 0}
+			...
+		{/if}
 		{foreach $steps as $step}
 			{if $step == $paginator->page}
 				<li class="active"><a href="#">{$step}</a></li>
 			{else}
-				<li><a href="{link this, 'page' => $step}">{$step}</a></li>
+				{if $step >= $paginator->page - 2 && $step <= $paginator->page + 2}
+					<li><a href="{link this, 'page' => $step}">{$step}</a></li>
+				{/if}
 			{/if}
-			{if $iterator->nextValue > $step + 1}
-				<li><a href="#">…</a></li>{/if}
 		{/foreach}
+		{if $paginator->page + 3 <= $paginator->getItemCount()}
+			...
+		{/if}
 		{if $paginator->isLast()}
 			<li><a href="#">&raquo;</a></li>
 		{else}
