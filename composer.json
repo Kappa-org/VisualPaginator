@@ -1,0 +1,32 @@
+{
+	"name": "kappa/visual-paginator",
+	"description": "Custom fork of original VisualPaginator",
+	"keywords": ["Kappa", "Nette", "paginator", "visual paginator"],
+	"homepage": "https://github.com/Kappa-org/VisualPaginator",
+	"license": ["BSD-3-Clause"],
+	"type": "library",
+	"authors": [
+		{
+			"name": "Ondřej Záruba",
+			"homepage": "http://zaruba-ondrej.cz"
+		}
+	],
+	"support": {
+		"email": "zarubaondra@gmail.com",
+		"issues": "https://github.com/Kappa-org/VisualPaginator/issues"
+	},
+	"require": {
+
+	},
+	"require-dev": {
+		"kappa/tester": "1.1.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"Kappa": "src/"
+		},
+		"classmap": [
+			"src/Kappa/VisualPaginator/exceptions.php"
+		]
+	}
+}
