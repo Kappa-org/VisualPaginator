@@ -37,9 +37,9 @@ class PaginatorTest extends TestCase
 	{
 		Assert::true($this->paginator->setTemplate(__DIR__ . '/../../data/files/template.latte') instanceof Paginator);
 		Assert::same(realpath(__DIR__ . '/../../data/files/template.latte'), $this->getReflection()->invokeProperty($this->paginator, 'fileTemplate'));
-		$self = $this;
-		Assert::throws(function () use ($self) {
-			$self->paginator->setTemplate('no-exist-template.latte');
+		$paginator = $this->paginator;
+		Assert::throws(function () use ($paginator) {
+			$paginator->setTemplate('no-exist-template.latte');
 		}, '\Kappa\VisualPaginator\FileNotFoundException');
 	}
 
