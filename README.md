@@ -1,4 +1,4 @@
-# Kappa\VisualPaginator
+# Kappa\VisualPaginator [![Build Status](https://travis-ci.org/Kappa-org/VisualPaginator.svg?branch=master)](https://travis-ci.org/Kappa-org/VisualPaginator)
 
 Custom fork of original VisualPaginator
 
