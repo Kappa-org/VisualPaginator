@@ -5,6 +5,7 @@
 	"homepage": "https://github.com/Kappa-org/VisualPaginator",
 	"license": ["BSD-3-Clause"],
 	"type": "library",
+	"minimum-stability": "dev",
 	"authors": [
 		{
 			"name": "Ondřej Záruba",
@@ -16,7 +17,7 @@
 		"issues": "https://github.com/Kappa-org/VisualPaginator/issues"
 	},
 	"require": {
-
+		"nette/application": "2.2.*"
 	},
 	"require-dev": {
 		"kappa/tester": "1.1.*"
