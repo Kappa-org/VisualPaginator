@@ -19,11 +19,8 @@ namespace Kappa\VisualPaginator;
 use Nette\Application\UI\Control;
 
 /**
- * Visual paginator control.
- *
- * @author     David Grudl
- * @copyright  Copyright (c) 2009 David Grudl
- * @package    Nette Extras
+ * Class Paginator
+ * @package Kappa\VisualPaginator
  */
 class Paginator extends Control
 {
@@ -36,6 +33,11 @@ class Paginator extends Control
 	/** @var string */
 	private $fileTemplate;
 
+	/**
+	 * @param string $template
+	 * @return $this
+	 * @throws FileNotFoundException
+	 */
 	public function setTemplate($template)
 	{
 		if (!file_exists($template))
@@ -57,29 +59,10 @@ class Paginator extends Control
 		return $this->paginator;
 	}
 
-	/**
-	 * Renders paginator.
-	 *
-	 * @return void
-	 */
 	public function render()
 	{
 		$paginator = $this->getPaginator();
-		$page = $paginator->page;
-		$steps = array();
-		if ($paginator->pageCount < 2) {
-			$steps = array($page);
-		} else {
-			if ($page - 2 > 0) {
-				$steps[] = 1;
-				$steps[] = '...';
-			}
-			for ($i = ($page - 1 > 0) ? $page - 1 : 1; $i <= $page + 1; $i++) {
-				$steps[] = $i;
-			}
-			$steps[] = '...';
-			$steps[] = $paginator->getLastPage();
-		}
+		$steps = range(1, $paginator->getItemCount());
 		$this->template->steps = $steps;
 		$this->template->paginator = $paginator;
 		$this->template->setFile($this->fileTemplate ? : __DIR__ . '/template.latte');
