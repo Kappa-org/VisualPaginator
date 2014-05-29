@@ -17,7 +17,7 @@
 				{/if}
 			{/if}
 		{/foreach}
-		{if $paginator->page + 3 <= $paginator->getItemCount()}
+		{if $paginator->page + 3 >= $paginator->getItemCount()}
 			...
 		{/if}
 		{if $paginator->isLast()}
