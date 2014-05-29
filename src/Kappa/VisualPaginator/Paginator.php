@@ -62,7 +62,8 @@ class Paginator extends Control
 	public function render()
 	{
 		$paginator = $this->getPaginator();
-		$steps = range(1, $paginator->getItemCount());
+		$max = ceil($paginator->getItemCount() / $paginator->getItemsPerPage());
+		$steps = range(1, $max);
 		$this->template->steps = $steps;
 		$this->template->paginator = $paginator;
 		$this->template->setFile($this->fileTemplate ? : __DIR__ . '/template.latte');
